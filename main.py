@@ -105,14 +105,30 @@ if uploaded_file is not None:
                         ],
                         max_tokens=300
                     )
-
+                    
                     # Extract the generated prompt
                     generated_prompt = response.choices[0].message.content
                     st.write("Generated prompt:", generated_prompt)
+                    
+                    
 
                                         # Generate 4 images using the generated promptDescribe this image in detail to use as a prompt for generating a similar image. Focus on the subject, style, colors, and composition.
                     images = []
                     for _ in range(4):
+                        response = client.chat.completions.create(
+                        model="gpt-4o-mini",
+                        messages=[
+                            {
+                                "role": "user",
+                                "content": [
+                                    {"type": "text", "text": f"Based on this prompt to generate an Image generate a different prompt for a consistent Instagram feed on style, color, tone, camera.  The prompt is here {generated_prompt} only return the prompt"},
+                                ]
+                            }
+                        ],
+                            max_tokens=300
+                        )
+                        generated_prompt = response.choices[0].message.content
+                        st.write("Generated prompt:", generated_prompt)
                         output = replicate.run(
                             "black-forest-labs/flux-schnell",
                             input={"prompt": generated_prompt}
