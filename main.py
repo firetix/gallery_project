@@ -95,7 +95,7 @@ if uploaded_file is not None:
                             {
                                 "role": "user",
                                 "content": [
-                                    {"type": "text", "text": "Generate a prompt from this image"},
+                                    {"type": "text", "text": "Generate a prompt from this image. Focus on the subject, style, colors, and composition"},
                                     {
                                         "type": "image_url",
                                         "image_url": { "url": s3_url }
@@ -110,7 +110,7 @@ if uploaded_file is not None:
                     generated_prompt = response.choices[0].message.content
                     st.write("Generated prompt:", generated_prompt)
 
-                                        # Generate 4 images using the generated prompt
+                                        # Generate 4 images using the generated promptDescribe this image in detail to use as a prompt for generating a similar image. Focus on the subject, style, colors, and composition.
                     images = []
                     for _ in range(4):
                         output = replicate.run(
