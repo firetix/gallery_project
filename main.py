@@ -86,7 +86,6 @@ if uploaded_file is not None:
                 s3_url = "https://mocro-gallery.s3.amazonaws.com/1.jpg"
                 image_filename = uploaded_file.name
                 s3_url = upload_image_to_s3(uploaded_file, image_filename)
-                import pdb; pdb.set_trace()
                 if s3_url:
                     # Send the S3 image URL to ChatGPT for analysis
                     client = OpenAI(api_key=openai_api_key)
