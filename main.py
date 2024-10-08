@@ -90,7 +90,7 @@ if uploaded_file is not None:
                     # Send the S3 image URL to ChatGPT for analysis
                     client = OpenAI(api_key=openai_api_key)
                     response = client.chat.completions.create(
-                        model="gpt-4o-mini",
+                        model="gpt-4o",
                         messages=[
                             {
                                 "role": "user",
@@ -116,7 +116,7 @@ if uploaded_file is not None:
                     images = []
                     for _ in range(4):
                         response = client.chat.completions.create(
-                        model="gpt-4o-mini",
+                        model="gpt-4o",
                         messages=[
                             {
                                 "role": "user",
