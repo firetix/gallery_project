@@ -7,7 +7,6 @@ import base64
 from openai import OpenAI
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
-from PIL import Image
 import uuid
 
 load_dotenv()

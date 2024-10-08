@@ -2,3 +2,4 @@ streamlit
 replicate
 openai
 python-dotenv
+boto3
